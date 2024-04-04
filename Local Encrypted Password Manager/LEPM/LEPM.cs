@@ -1,10 +1,11 @@
 namespace LEPM
 {
-    public partial class Form1 : Form
+    public partial class LEPM : Form
     {
-        public Form1()
+        public LEPM()
         {
             InitializeComponent();
         }
+
     }
 }
