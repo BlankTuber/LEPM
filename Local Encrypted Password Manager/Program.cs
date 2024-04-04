@@ -1,4 +1,4 @@
-namespace LEPM
+namespace Local_Encrypted_Password_Manager
 {
     internal static class Program
     {

@@ -1,4 +1,4 @@
-namespace LEPM
+namespace Local_Encrypted_Password_Manager
 {
     public partial class LEPM : Form
     {
@@ -6,6 +6,5 @@ namespace LEPM
         {
             InitializeComponent();
         }
-
     }
 }
