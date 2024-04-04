@@ -28,31 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            home1 = new Home();
+            mainPanel = new Panel();
             SuspendLayout();
             // 
-            // home1
+            // mainPanel
             // 
-            home1.AutoSize = true;
-            home1.BackColor = Color.Black;
-            home1.Font = new Font("SimSun", 30F, FontStyle.Bold);
-            home1.ForeColor = Color.Lime;
-            home1.Location = new Point(0, 0);
-            home1.Margin = new Padding(9, 7, 9, 7);
-            home1.Name = "home1";
-            home1.Size = new Size(1920, 1080);
-            home1.TabIndex = 0;
+            mainPanel.Dock = DockStyle.Fill;
+            mainPanel.Location = new Point(0, 0);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new Size(1478, 699);
+            mainPanel.TabIndex = 0;
             // 
             // LEPM
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
-            AutoScaleMode = AutoScaleMode.Dpi;
-            AutoSize = true;
-            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.Black;
-            ClientSize = new Size(1902, 1033);
+            ClientSize = new Size(1478, 699);
             ControlBox = false;
-            Controls.Add(home1);
+            Controls.Add(mainPanel);
             ForeColor = Color.Lime;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "LEPM";
@@ -60,11 +53,10 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Local Encrypted Password Manager";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Home home1;
+        private Panel mainPanel;
     }
 }

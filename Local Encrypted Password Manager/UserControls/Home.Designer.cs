@@ -31,14 +31,14 @@
             label1 = new Label();
             LogInBtn = new Button();
             SignUpBtn = new Button();
-            ExitBtn = new Button();
+            exitButton1 = new UserControls.ExitButton();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Lucida Console", 60F, FontStyle.Bold);
-            label1.Location = new Point(604, 36);
+            label1.Location = new Point(383, 36);
             label1.Name = "label1";
             label1.Size = new Size(713, 100);
             label1.TabIndex = 0;
@@ -55,12 +55,13 @@
             LogInBtn.FlatStyle = FlatStyle.Flat;
             LogInBtn.Font = new Font("SimSun", 50F, FontStyle.Bold);
             LogInBtn.ForeColor = Color.Black;
-            LogInBtn.Location = new Point(635, 275);
+            LogInBtn.Location = new Point(30, 219);
             LogInBtn.Name = "LogInBtn";
             LogInBtn.Size = new Size(650, 142);
             LogInBtn.TabIndex = 1;
             LogInBtn.Text = "Login";
             LogInBtn.UseVisualStyleBackColor = false;
+            LogInBtn.Click += LogInBtn_Click;
             // 
             // SignUpBtn
             // 
@@ -73,30 +74,21 @@
             SignUpBtn.FlatStyle = FlatStyle.Flat;
             SignUpBtn.Font = new Font("SimSun", 50F, FontStyle.Bold);
             SignUpBtn.ForeColor = Color.Black;
-            SignUpBtn.Location = new Point(635, 485);
+            SignUpBtn.Location = new Point(798, 219);
             SignUpBtn.Name = "SignUpBtn";
             SignUpBtn.Size = new Size(650, 142);
             SignUpBtn.TabIndex = 2;
             SignUpBtn.Text = "Signup";
             SignUpBtn.UseVisualStyleBackColor = false;
+            SignUpBtn.Click += this.SignUpBtn_Click;
             // 
-            // ExitBtn
+            // exitButton1
             // 
-            ExitBtn.BackColor = Color.Red;
-            ExitBtn.Cursor = Cursors.Hand;
-            ExitBtn.FlatAppearance.BorderColor = Color.Cyan;
-            ExitBtn.FlatAppearance.BorderSize = 3;
-            ExitBtn.FlatAppearance.MouseDownBackColor = Color.IndianRed;
-            ExitBtn.FlatAppearance.MouseOverBackColor = Color.LightCoral;
-            ExitBtn.FlatStyle = FlatStyle.Flat;
-            ExitBtn.Font = new Font("SimSun", 50F, FontStyle.Bold);
-            ExitBtn.ForeColor = Color.Black;
-            ExitBtn.Location = new Point(635, 858);
-            ExitBtn.Name = "ExitBtn";
-            ExitBtn.Size = new Size(650, 142);
-            ExitBtn.TabIndex = 3;
-            ExitBtn.Text = "Exit";
-            ExitBtn.UseVisualStyleBackColor = false;
+            exitButton1.BackColor = Color.Black;
+            exitButton1.Location = new Point(414, 505);
+            exitButton1.Name = "exitButton1";
+            exitButton1.Size = new Size(650, 143);
+            exitButton1.TabIndex = 3;
             // 
             // Home
             // 
@@ -104,7 +96,7 @@
             AutoScaleMode = AutoScaleMode.Dpi;
             AutoSize = true;
             BackColor = Color.Black;
-            Controls.Add(ExitBtn);
+            Controls.Add(exitButton1);
             Controls.Add(SignUpBtn);
             Controls.Add(LogInBtn);
             Controls.Add(label1);
@@ -112,7 +104,7 @@
             ForeColor = Color.Lime;
             Margin = new Padding(9, 7, 9, 7);
             Name = "Home";
-            Size = new Size(1920, 1080);
+            Size = new Size(1478, 699);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -122,6 +114,6 @@
         private Label label1;
         private Button LogInBtn;
         private Button SignUpBtn;
-        private Button ExitBtn;
+        private UserControls.ExitButton exitButton1;
     }
 }

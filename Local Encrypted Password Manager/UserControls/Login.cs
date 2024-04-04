@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Local_Encrypted_Password_Manager
+namespace Local_Encrypted_Password_Manager.UserControls
 {
-    public partial class Home : UserControl
+    public partial class Login : UserControl
     {
-        public Home()
+        public Login()
         {
             InitializeComponent();
         }
