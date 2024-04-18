@@ -203,6 +203,7 @@
             Name = "AddPwd";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddPwd";
+            Activated += AddPwd_Activated;
             ResumeLayout(false);
             PerformLayout();
         }

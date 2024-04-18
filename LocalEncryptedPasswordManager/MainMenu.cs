@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using System.IO;
+using System.IO.Compression;
 
 namespace LocalEncryptedPasswordManager
 {
@@ -106,6 +108,7 @@ namespace LocalEncryptedPasswordManager
         {
             LoadPasswords();
             UpdateNavigationButtons();
+            getMaxPages();
         }
 
         private void ExportPwdBtn_Click(object sender, EventArgs e)
@@ -114,12 +117,51 @@ namespace LocalEncryptedPasswordManager
 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Proceeding...");
+                string userProfilePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
+                string downloadsPath = Path.Combine(userProfilePath, "Downloads");
+
+                if (!Directory.Exists(downloadsPath))
+                {
+                    MessageBox.Show("The Downloads folder does not exist. Please check the path and try again.");
+                    return;
+                }
+
+                string zipFileName = "MyPasswordsBackup.zip";
+                string destinationZipFilePath = Path.Combine(downloadsPath, zipFileName);
+
+                CreateZipFromDirectory(AppDomain.CurrentDomain.BaseDirectory, destinationZipFilePath);
             }
             else if (result == DialogResult.Cancel)
             {
                 MessageBox.Show("Cancelling...");
             }
         }
+
+        public static void CreateZipFromDirectory(string sourceDirectory, string destinationZipFilePath)
+        {
+            if (!Directory.Exists(sourceDirectory))
+            {
+                MessageBox.Show("The specified directory does not exist.");
+                return;
+            }
+
+            try
+            {
+                if (File.Exists(destinationZipFilePath))
+                {
+                    File.Delete(destinationZipFilePath);
+                }
+
+                ZipFile.CreateFromDirectory(sourceDirectory, destinationZipFilePath);
+
+                MessageBox.Show($"Directory {sourceDirectory} zipped to {destinationZipFilePath}. Unzip it to use it as normal.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while creating the zip file: {ex.Message}");
+            }
+        }
+
     }
 }

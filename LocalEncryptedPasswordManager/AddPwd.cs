@@ -12,6 +12,8 @@ namespace LocalEncryptedPasswordManager
 {
     public partial class AddPwd : Form
     {
+
+        public static string[]? loadedItems;
         public AddPwd()
         {
             InitializeComponent();
@@ -83,8 +85,8 @@ namespace LocalEncryptedPasswordManager
             string newDesc = desc.Replace("\n", "\t");
 
             string invalidCharsPattern = @"[<>:""/\\|?*]|[\x00-\x1F]";
-            string safeUsrNam = System.Text.RegularExpressions.Regex.Replace(usrNam, invalidCharsPattern, "_");
-            string safeSite = System.Text.RegularExpressions.Regex.Replace(site, invalidCharsPattern, "_");
+            string safeUsrNam = System.Text.RegularExpressions.Regex.Replace(usrNam, invalidCharsPattern, "[I]");
+            string safeSite = System.Text.RegularExpressions.Regex.Replace(site, invalidCharsPattern, "[I]");
 
 
 
@@ -102,6 +104,32 @@ namespace LocalEncryptedPasswordManager
                 return;
             }
             PasswordInput.Text = pwd;
+        }
+
+        public static void AddPwd_Loader(string[]? items = null)
+        {
+            if (items != null)
+            {
+                loadedItems = items;
+            }
+        }
+
+        private void AddPwd_Activated(object sender, EventArgs e)
+        {
+            if (loadedItems != null && loadedItems.Any())
+            {
+                string username = loadedItems[0];
+                string password = loadedItems[1];
+                string site = loadedItems[2];
+                string desc = loadedItems[3];
+
+                UsernameInput.Text = username;
+                PasswordInput.Text = password;
+                SiteInput.Text = site;
+                DescInput.Text = desc;
+
+                loadedItems = null;
+            }
         }
     }
 }

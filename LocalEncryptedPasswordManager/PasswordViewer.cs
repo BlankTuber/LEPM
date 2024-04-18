@@ -93,7 +93,27 @@ namespace LocalEncryptedPasswordManager
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("NotYetADDED!");
+            AddPwd.AddPwd_Loader(loadedItems);
+            try
+            {
+                string filePath = Path.Combine(GlobalVariables.filePath, loadedItems[4]);
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                    Console.WriteLine("File deleted successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("File does not exist.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Program.HidePwdViewerForm();
+            Program.ShowAddPwdForm();
         }
     }
 }
