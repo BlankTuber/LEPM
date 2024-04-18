@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.IO;
 
 namespace LocalEncryptedPasswordManager
 {
@@ -35,8 +36,17 @@ namespace LocalEncryptedPasswordManager
                 return;
             }
 
-            string fileName = $"{usernameInput}.txt";
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+            string fileName = "user.txt";
+            string fileFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, usernameInput);
+
+
+            if (!Directory.Exists(fileFolderPath))
+            {
+                MessageBox.Show("User doesn't exist!");
+                return;
+            }
+
+            string filePath = Path.Combine(fileFolderPath, fileName);
 
             if (!File.Exists(filePath))
             {

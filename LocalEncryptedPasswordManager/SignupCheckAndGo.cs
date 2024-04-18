@@ -9,8 +9,19 @@ namespace LocalEncryptedPasswordManager
     {
         public static void scag(string userName, string password)
         {
-            string fileName =  $"{userName}.txt";
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+            string fileName =  "user.txt";
+            string fileFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, userName);
+
+            if (Directory.Exists(fileFolderPath))
+            {
+                MessageBox.Show("User already exists!");
+            }
+            else
+            {
+                Directory.CreateDirectory(fileFolderPath);
+            }
+
+            string filePath = Path.Combine(fileFolderPath, fileName);
 
             if (File.Exists(filePath))
             {
