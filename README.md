@@ -2,4 +2,4 @@
 This is a Local Encrypted Password Manager
 
 
-**__W.I.P__**
+[Download software here](https://quidque.no/lepm/LocalEncryptedPasswordManager.exe)
