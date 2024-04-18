@@ -36,6 +36,7 @@
             // LoginBtn
             // 
             LoginBtn.BackColor = SystemColors.HotTrack;
+            LoginBtn.Cursor = Cursors.Hand;
             LoginBtn.Font = new Font("Lucida Console", 20F);
             LoginBtn.ForeColor = SystemColors.ButtonFace;
             LoginBtn.Location = new Point(640, 122);
@@ -45,11 +46,12 @@
             LoginBtn.TabIndex = 0;
             LoginBtn.Text = "Log in";
             LoginBtn.UseVisualStyleBackColor = false;
-            LoginBtn.Click += this.LoginBtn_Click;
+            LoginBtn.Click += LoginBtn_Click;
             // 
             // SignupBtn
             // 
             SignupBtn.BackColor = SystemColors.HotTrack;
+            SignupBtn.Cursor = Cursors.Hand;
             SignupBtn.Font = new Font("Lucida Console", 20F);
             SignupBtn.ForeColor = SystemColors.ButtonFace;
             SignupBtn.Location = new Point(640, 330);
@@ -59,11 +61,12 @@
             SignupBtn.TabIndex = 1;
             SignupBtn.Text = "Sign Up";
             SignupBtn.UseVisualStyleBackColor = false;
-            SignupBtn.Click += this.SignupBtn_Click;
+            SignupBtn.Click += SignupBtn_Click;
             // 
             // ExitBtn
             // 
             ExitBtn.BackColor = SystemColors.HotTrack;
+            ExitBtn.Cursor = Cursors.Hand;
             ExitBtn.Font = new Font("Lucida Console", 20F);
             ExitBtn.ForeColor = SystemColors.ButtonFace;
             ExitBtn.Location = new Point(640, 538);
@@ -73,7 +76,7 @@
             ExitBtn.TabIndex = 2;
             ExitBtn.Text = "Exit";
             ExitBtn.UseVisualStyleBackColor = false;
-            ExitBtn.Click += this.ExitBtn_Click;
+            ExitBtn.Click += ExitBtn_Click;
             // 
             // LoginSignup
             // 

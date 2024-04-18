@@ -51,6 +51,7 @@
             // 
             // UsernameInput
             // 
+            UsernameInput.Cursor = Cursors.IBeam;
             UsernameInput.Font = new Font("Lucida Console", 15F);
             UsernameInput.Location = new Point(640, 131);
             UsernameInput.MaxLength = 32;
@@ -60,6 +61,7 @@
             // 
             // PasswordInput
             // 
+            PasswordInput.Cursor = Cursors.IBeam;
             PasswordInput.Font = new Font("Lucida Console", 15F);
             PasswordInput.Location = new Point(640, 279);
             PasswordInput.MaxLength = 32;
@@ -81,6 +83,7 @@
             // 
             // ConfirmPasswordInput
             // 
+            ConfirmPasswordInput.Cursor = Cursors.IBeam;
             ConfirmPasswordInput.Font = new Font("Lucida Console", 15F);
             ConfirmPasswordInput.Location = new Point(640, 427);
             ConfirmPasswordInput.MaxLength = 32;
@@ -103,6 +106,7 @@
             // SignupActivateBtn
             // 
             SignupActivateBtn.BackColor = SystemColors.GradientActiveCaption;
+            SignupActivateBtn.Cursor = Cursors.Hand;
             SignupActivateBtn.ForeColor = SystemColors.InactiveCaptionText;
             SignupActivateBtn.Location = new Point(667, 611);
             SignupActivateBtn.Name = "SignupActivateBtn";
@@ -115,6 +119,7 @@
             // BackBtn
             // 
             BackBtn.BackColor = Color.IndianRed;
+            BackBtn.Cursor = Cursors.Hand;
             BackBtn.ForeColor = SystemColors.InactiveBorder;
             BackBtn.Location = new Point(12, 12);
             BackBtn.Name = "BackBtn";

@@ -12,7 +12,7 @@ namespace LocalEncryptedPasswordManager
         public static Form LoginSignupForm;
         public static Form SignupForm;
         public static Form LoginForm;
-        public static Form MainForm;
+        public static Form AddPwdForm;
 
         public static ApplicationContext AppContext;
 
@@ -25,7 +25,7 @@ namespace LocalEncryptedPasswordManager
             LoginSignupForm = new LoginSignup();
             SignupForm = new Signup();
             LoginForm = new Login();
-            MainForm = new MainMenu();
+            AddPwdForm = new AddPwd();
 
             AppContext = new ApplicationContext();
             AppContext.MainForm = LoginSignupForm;
@@ -64,15 +64,31 @@ namespace LocalEncryptedPasswordManager
             LoginSignupForm.Hide();
         }
 
+        public static void ShowAddPwdForm()
+        {
+            if (AddPwdForm == null || AddPwdForm.IsDisposed)
+            {
+                AddPwdForm = new AddPwd();
+            }
+            AddPwdForm.Show();
+            AddPwd.ClearAllContent();
+        }
+
+        public static void HideAddPwdForm()
+        {
+            AddPwdForm.Hide();
+        }
+
         public static void LoginComplete()
         {
-            if (MainForm == null || MainForm.IsDisposed)
-            {
-                MainForm = new MainMenu();
-            }
+            MainMenu MainForm = new MainMenu();
             AppContext.MainForm = MainForm;
 
             MainForm.Show();
+
+            MainForm.LoadPasswords();
+            MainForm.getMaxPages();
+
             LoginSignupForm.Close();
             SignupForm.Close();
             LoginForm.Close();
