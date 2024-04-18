@@ -1,5 +1,10 @@
 namespace LocalEncryptedPasswordManager
 {
+    public static class GlobalVariables
+    {
+        public static string key = "";
+    }
+
     internal static class Program
     {
         public static Form LoginSignupForm;

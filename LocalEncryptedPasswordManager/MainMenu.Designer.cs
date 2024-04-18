@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            MainExitBtn = new Button();
+            SuspendLayout();
+            // 
+            // MainExitBtn
+            // 
+            MainExitBtn.Font = new Font("Segoe UI", 20F);
+            MainExitBtn.Location = new Point(564, 244);
+            MainExitBtn.Name = "MainExitBtn";
+            MainExitBtn.Size = new Size(557, 273);
+            MainExitBtn.TabIndex = 0;
+            MainExitBtn.Text = "Exit";
+            MainExitBtn.UseVisualStyleBackColor = true;
+            MainExitBtn.Click += MainExitBtn_Click;
+            // 
+            // MainMenu
+            // 
+            AutoScaleMode = AutoScaleMode.None;
+            ClientSize = new Size(1684, 761);
+            Controls.Add(MainExitBtn);
+            Name = "MainMenu";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Form1";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button MainExitBtn;
     }
 }

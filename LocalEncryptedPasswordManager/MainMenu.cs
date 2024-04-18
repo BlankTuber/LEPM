@@ -16,5 +16,10 @@ namespace LocalEncryptedPasswordManager
         {
             InitializeComponent();
         }
+
+        private void MainExitBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

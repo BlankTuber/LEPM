@@ -33,7 +33,7 @@
             PasswordInput = new TextBox();
             PasswordLabel = new Label();
             ConfirmPasswordInput = new TextBox();
-            label1 = new Label();
+            ConfirmPasswordLabel = new Label();
             SignupActivateBtn = new Button();
             BackBtn = new Button();
             SuspendLayout();
@@ -89,16 +89,16 @@
             ConfirmPasswordInput.Size = new Size(405, 27);
             ConfirmPasswordInput.TabIndex = 5;
             // 
-            // label1
+            // ConfirmPasswordLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Lucida Console", 20F);
-            label1.Location = new Point(708, 385);
-            label1.Name = "label1";
-            label1.Size = new Size(268, 27);
-            label1.TabIndex = 4;
-            label1.Text = "Confirm Password";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            ConfirmPasswordLabel.AutoSize = true;
+            ConfirmPasswordLabel.Font = new Font("Lucida Console", 20F);
+            ConfirmPasswordLabel.Location = new Point(708, 385);
+            ConfirmPasswordLabel.Name = "ConfirmPasswordLabel";
+            ConfirmPasswordLabel.Size = new Size(268, 27);
+            ConfirmPasswordLabel.TabIndex = 4;
+            ConfirmPasswordLabel.Text = "Confirm Password";
+            ConfirmPasswordLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // SignupActivateBtn
             // 
@@ -132,7 +132,7 @@
             Controls.Add(BackBtn);
             Controls.Add(SignupActivateBtn);
             Controls.Add(ConfirmPasswordInput);
-            Controls.Add(label1);
+            Controls.Add(ConfirmPasswordLabel);
             Controls.Add(PasswordInput);
             Controls.Add(PasswordLabel);
             Controls.Add(UsernameInput);
@@ -152,7 +152,7 @@
         private TextBox PasswordInput;
         private Label PasswordLabel;
         private TextBox ConfirmPasswordInput;
-        private Label label1;
+        private Label ConfirmPasswordLabel;
         private Button SignupActivateBtn;
         private Button BackBtn;
     }
