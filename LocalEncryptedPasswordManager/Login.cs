@@ -46,6 +46,7 @@ namespace LocalEncryptedPasswordManager
                 return;
             }
 
+            string passwordsFolderPath = Path.Combine(fileFolderPath, "pwds");
             string filePath = Path.Combine(fileFolderPath, fileName);
 
             if (!File.Exists(filePath))
@@ -54,7 +55,7 @@ namespace LocalEncryptedPasswordManager
                 return;
             }
 
-            LoginCheckAndGo.lcag(usernameInput, passwordInput, filePath);
+            LoginCheckAndGo.lcag(usernameInput, passwordInput, filePath, passwordsFolderPath);
 
         }
 

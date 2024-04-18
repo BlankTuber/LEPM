@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace LocalEncryptedPasswordManager
 {
     internal class LoginCheckAndGo
     {
-        public static void lcag(string username, string password, string filePath)
+        public static void lcag(string username, string password, string filePath, string passwordsFolderPath)
         {
             string[] lines = File.ReadAllLines(filePath);
             if (lines.Length < 3 )
@@ -44,6 +45,8 @@ namespace LocalEncryptedPasswordManager
             else
             {
                 GlobalVariables.key = derivedKey;
+                GlobalVariables.filePath = passwordsFolderPath;
+                GlobalVariables.username = username;
                 Program.LoginComplete();
                 return;
             }

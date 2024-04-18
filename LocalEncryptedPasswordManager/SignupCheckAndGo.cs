@@ -11,6 +11,7 @@ namespace LocalEncryptedPasswordManager
         {
             string fileName =  "user.txt";
             string fileFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, userName);
+            string passwordsFolderPath = Path.Combine(fileFolderPath, "pwds");
 
             if (Directory.Exists(fileFolderPath))
             {
@@ -19,6 +20,7 @@ namespace LocalEncryptedPasswordManager
             else
             {
                 Directory.CreateDirectory(fileFolderPath);
+                Directory.CreateDirectory(passwordsFolderPath);
             }
 
             string filePath = Path.Combine(fileFolderPath, fileName);
@@ -49,6 +51,8 @@ namespace LocalEncryptedPasswordManager
 
             File.WriteAllText(filePath, fileInfo);
             GlobalVariables.key = derivedKey;
+            GlobalVariables.filePath = passwordsFolderPath;
+            GlobalVariables.username = userName;
             Program.LoginComplete();
             return;
         }

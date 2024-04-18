@@ -3,6 +3,8 @@ namespace LocalEncryptedPasswordManager
     public static class GlobalVariables
     {
         public static string key = "";
+        public static string username = "";
+        public static string filePath = "";
     }
 
     internal static class Program
