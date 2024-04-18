@@ -61,6 +61,7 @@
             ExportPwdBtn.TabIndex = 1;
             ExportPwdBtn.Text = "Export Passwords";
             ExportPwdBtn.UseVisualStyleBackColor = false;
+            ExportPwdBtn.Click += ExportPwdBtn_Click;
             // 
             // AddPwdBtn
             // 
@@ -120,6 +121,7 @@
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.Black;
             ClientSize = new Size(1684, 761);
+            ControlBox = false;
             Controls.Add(PageLabel);
             Controls.Add(btnNext);
             Controls.Add(btnPrevious);
@@ -131,6 +133,7 @@
             Name = "MainMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Main Menu";
+            Activated += MainMenu_Activated;
             ResumeLayout(false);
         }
 

@@ -9,11 +9,11 @@ namespace LocalEncryptedPasswordManager
 {
     internal class Cryption
     {
-        public static string PasswordGenerator()
+        public static string PasswordGenerator(int minLength = 10, int maxLength = 16)
         {
             string generatedPwd = "";
-            string[] possibles =
-            [
+            string[] possibles = new string[]
+            {
                 "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
                 "a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
                 "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
@@ -21,17 +21,28 @@ namespace LocalEncryptedPasswordManager
                 "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
                 "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
                 "U", "V", "W", "X", "Y", "Z"
-            ];
+            };
 
-            Random randNum = new Random();
-
-            for (int i = 0; i < 11; i++)
+            using (var rng = System.Security.Cryptography.RandomNumberGenerator.Create())
             {
-                generatedPwd += possibles[randNum.Next(0, possibles.Length)];
+                int pwdLength = RandomNumberBetween(rng, minLength, maxLength);
+                for (int i = 0; i < pwdLength; i++)
+                {
+                    generatedPwd += possibles[RandomNumberBetween(rng, 0, possibles.Length)];
+                }
             }
 
             return generatedPwd;
         }
+
+        private static int RandomNumberBetween(System.Security.Cryptography.RandomNumberGenerator rng, int min, int max)
+        {
+            byte[] randomNumber = new byte[4]; // 32 bits to hold a non-negative integer
+            rng.GetBytes(randomNumber);
+            int value = BitConverter.ToInt32(randomNumber, 0);
+            return (Math.Abs(value) % (max - min)) + min;
+        }
+
 
         public static string Encrypt(string plainText, string keyString)
         {

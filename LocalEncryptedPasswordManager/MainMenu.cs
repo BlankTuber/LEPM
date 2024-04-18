@@ -44,7 +44,7 @@ namespace LocalEncryptedPasswordManager
 
                 Button btn = new Button
                 {
-                    Text = Path.GetFileName(files[i]),
+                    Text = Path.GetFileNameWithoutExtension(files[i]),
                     Size = new System.Drawing.Size(buttonWidth, buttonHeight),
                     Location = new System.Drawing.Point(
                         (i % 3) * (buttonWidth + margin) + margin,
@@ -63,8 +63,8 @@ namespace LocalEncryptedPasswordManager
         {
             if (sender is Button btn)
             {
-                MessageBox.Show("You clicked: " + btn.Text);
-                // Your logic here.
+                string file = $"{btn.Text}.txt";
+                Program.LoadPwdViewerForm(file);
             }
         }
 
@@ -100,6 +100,26 @@ namespace LocalEncryptedPasswordManager
         private void AddPwdBtn_Click(object sender, EventArgs e)
         {
             Program.ShowAddPwdForm();
+        }
+
+        private void MainMenu_Activated(object sender, EventArgs e)
+        {
+            LoadPasswords();
+            UpdateNavigationButtons();
+        }
+
+        private void ExportPwdBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("This will make a zipped folder with all your information, and put it in your downloads folder. Do you wish to proceed?", "Confirmation", MessageBoxButtons.OKCancel);
+
+            if (result == DialogResult.OK)
+            {
+                MessageBox.Show("Proceeding...");
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                MessageBox.Show("Cancelling...");
+            }
         }
     }
 }

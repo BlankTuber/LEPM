@@ -109,6 +109,7 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1684, 761);
+            ControlBox = false;
             Controls.Add(LoginActivateBtn);
             Controls.Add(BackBtn);
             Controls.Add(PasswordInput);

@@ -13,6 +13,7 @@ namespace LocalEncryptedPasswordManager
         public static Form SignupForm;
         public static Form LoginForm;
         public static Form AddPwdForm;
+        public static Form PwdViewerForm;
 
         public static ApplicationContext AppContext;
 
@@ -26,6 +27,7 @@ namespace LocalEncryptedPasswordManager
             SignupForm = new Signup();
             LoginForm = new Login();
             AddPwdForm = new AddPwd();
+            PwdViewerForm = new PasswordViewer();
 
             AppContext = new ApplicationContext();
             AppContext.MainForm = LoginSignupForm;
@@ -71,12 +73,26 @@ namespace LocalEncryptedPasswordManager
                 AddPwdForm = new AddPwd();
             }
             AddPwdForm.Show();
-            AddPwd.ClearAllContent();
         }
 
         public static void HideAddPwdForm()
         {
             AddPwdForm.Hide();
+        }
+
+        public static void LoadPwdViewerForm(string file)
+        {
+            if (PwdViewerForm == null || PwdViewerForm.IsDisposed)
+            {
+                PwdViewerForm = new PasswordViewer();
+            }
+            PasswordViewer.loadedItems = Passwords.LoadPassword(file);
+            PwdViewerForm.Show();
+        }
+
+        public static void HidePwdViewerForm()
+        {
+            PwdViewerForm.Hide();
         }
 
         public static void LoginComplete()

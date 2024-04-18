@@ -39,6 +39,7 @@
             SiteLabel = new Label();
             ShowPwdBtn = new CheckBox();
             AddPwdBtn = new Button();
+            GenPwdBtn = new Button();
             SuspendLayout();
             // 
             // BackBtn
@@ -105,7 +106,6 @@
             DescInput.MaxLength = 32;
             DescInput.Multiline = true;
             DescInput.Name = "DescInput";
-            DescInput.PasswordChar = '*';
             DescInput.Size = new Size(405, 143);
             DescInput.TabIndex = 14;
             // 
@@ -168,11 +168,25 @@
             AddPwdBtn.UseVisualStyleBackColor = false;
             AddPwdBtn.Click += AddPwdBtn_Click;
             // 
+            // GenPwdBtn
+            // 
+            GenPwdBtn.BackColor = SystemColors.HotTrack;
+            GenPwdBtn.ForeColor = Color.Gold;
+            GenPwdBtn.Location = new Point(969, 231);
+            GenPwdBtn.Name = "GenPwdBtn";
+            GenPwdBtn.Size = new Size(309, 55);
+            GenPwdBtn.TabIndex = 19;
+            GenPwdBtn.Text = "Generate Password";
+            GenPwdBtn.UseVisualStyleBackColor = false;
+            GenPwdBtn.Click += GenPwdBtn_Click;
+            // 
             // AddPwd
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaptionText;
             ClientSize = new Size(1684, 761);
+            ControlBox = false;
+            Controls.Add(GenPwdBtn);
             Controls.Add(AddPwdBtn);
             Controls.Add(ShowPwdBtn);
             Controls.Add(SiteInput);
@@ -206,5 +220,6 @@
         private Label SiteLabel;
         private CheckBox ShowPwdBtn;
         private Button AddPwdBtn;
+        private Button GenPwdBtn;
     }
 }
